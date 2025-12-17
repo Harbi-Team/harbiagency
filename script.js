@@ -11,6 +11,23 @@ function raf(time) {
 
 requestAnimationFrame(raf);
 
+// Header scroll effect
+const nav = document.querySelector('nav');
+let lastScroll = 0;
+
+window.addEventListener('scroll', () => {
+  const currentScroll = window.pageYOffset;
+  const viewportHeight = window.innerHeight;
+
+  if (currentScroll > viewportHeight) {
+    nav.classList.add('scrolled');
+  } else {
+    nav.classList.remove('scrolled');
+  }
+
+  lastScroll = currentScroll;
+});
+
 // Shared Animation Helper
 const initPart1Animations = (tl) => {
   tl.to(".rotate-div", { rotate: -15, scale: 0.8 }, "a")
