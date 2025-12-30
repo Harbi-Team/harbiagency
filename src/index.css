@@ -1,0 +1,508 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* HARB! Design System - Black & Yellow aggressive theme */
+    --background: 0 0% 3%;
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 5%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 5%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 48 100% 50%;
+    --primary-foreground: 0 0% 3%;
+
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 60%;
+
+    --accent: 48 100% 45%;
+    --accent-foreground: 0 0% 3%;
+
+    --destructive: 48 100% 50%;
+    --destructive-foreground: 0 0% 3%;
+
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 48 100% 50%;
+
+    --radius: 0px;
+
+    /* Custom HARB! colors */
+    --harbi-yellow: 48 100% 50%;
+    --harbi-yellow-dark: 48 100% 40%;
+    --harbi-dark: 0 0% 3%;
+    --harbi-gray: 0 0% 12%;
+
+    /* Gradients */
+    --gradient-aggressive: linear-gradient(
+      135deg,
+      hsl(48, 100%, 50%) 0%,
+      hsl(45, 100%, 60%) 100%
+    );
+    --gradient-dark: linear-gradient(
+      180deg,
+      hsl(0, 0%, 3%) 0%,
+      hsl(0, 0%, 8%) 100%
+    );
+
+    /* Shadows */
+    --shadow-glow-yellow: 0 0 60px hsl(48, 100%, 50%, 0.4);
+
+    /* Typography */
+    --font-display: "Bebas Neue", sans-serif;
+    --font-body: "Inter", sans-serif;
+
+    --sidebar-background: 0 0% 5%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 48 100% 50%;
+    --sidebar-primary-foreground: 0 0% 3%;
+    --sidebar-accent: 0 0% 10%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 0 0% 15%;
+    --sidebar-ring: 48 100% 50%;
+  }
+
+  .dark {
+    --background: 0 0% 3%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 5%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 5%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 48 100% 50%;
+    --primary-foreground: 0 0% 3%;
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 60%;
+    --accent: 48 100% 45%;
+    --accent-foreground: 0 0% 3%;
+    --destructive: 48 100% 50%;
+    --destructive-foreground: 0 0% 3%;
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 48 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply text-foreground antialiased;
+    font-family: var(--font-body);
+    overflow-x: hidden;
+    cursor: none;
+    background: transparent;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display);
+  }
+
+  ::selection {
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+  }
+}
+@layer components {
+  /* Display Typography */
+  .text-display-hero {
+    @apply text-6xl md:text-8xl lg:text-[10rem] font-bold uppercase tracking-tight leading-none;
+    font-family: var(--font-display);
+  }
+
+  .text-display-large {
+    @apply text-5xl md:text-7xl lg:text-8xl font-bold uppercase tracking-tight leading-none;
+    font-family: var(--font-display);
+  }
+
+  .text-display-medium {
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold uppercase tracking-tight leading-none;
+    font-family: var(--font-display);
+  }
+
+  .text-display-small {
+    @apply text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-tight leading-none;
+    font-family: var(--font-display);
+  }
+
+  /* Section Title */
+  .text-section-label {
+    @apply text-xs md:text-sm font-medium uppercase tracking-[0.3em] text-primary;
+  }
+
+  /* Accent colors */
+  .text-harbi-yellow {
+    color: hsl(var(--harbi-yellow));
+  }
+
+  .bg-harbi-yellow {
+    background-color: hsl(var(--harbi-yellow));
+  }
+
+  .bg-harbi-dark {
+    background-color: hsl(var(--harbi-dark));
+  }
+
+  .bg-harbi-gray {
+    background-color: hsl(var(--harbi-gray));
+  }
+
+  /* Glow effects */
+  .glow-yellow {
+    box-shadow: var(--shadow-glow-yellow);
+  }
+
+  .text-glow-yellow {
+    text-shadow: 0 0 40px hsl(48, 100%, 50%, 0.5);
+  }
+
+  /* Act sections */
+  .act-section {
+    @apply min-h-screen relative flex items-center justify-center overflow-hidden;
+  }
+
+  /* Glitch effect */
+  .glitch {
+    position: relative;
+  }
+
+  .glitch::before,
+  .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .glitch::before {
+    animation: glitch-1 0.3s infinite linear alternate-reverse;
+    clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
+    color: hsl(var(--harbi-yellow));
+    opacity: 0.8;
+  }
+
+  .glitch::after {
+    animation: glitch-2 0.3s infinite linear alternate-reverse;
+    clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
+    color: hsl(var(--harbi-yellow));
+    opacity: 0.6;
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    background: var(--gradient-aggressive);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Line separator */
+  .line-separator {
+    @apply h-px bg-gradient-to-r from-transparent via-primary to-transparent;
+  }
+
+  /* Button variants */
+  .btn-harbi {
+    @apply bg-primary text-primary-foreground px-8 py-4 font-bold uppercase tracking-wider transition-all duration-300;
+    font-family: var(--font-display);
+  }
+
+  .btn-harbi:hover {
+    @apply scale-105;
+    box-shadow: var(--shadow-glow-yellow);
+  }
+
+  .btn-harbi-accent {
+    @apply bg-primary text-primary-foreground px-8 py-4 font-bold uppercase tracking-wider transition-all duration-300;
+    font-family: var(--font-display);
+  }
+
+  .btn-harbi-accent:hover {
+    @apply scale-105;
+    box-shadow: var(--shadow-glow-yellow);
+  }
+
+  .btn-harbi-outline {
+    @apply border-2 border-foreground text-foreground px-8 py-4 font-bold uppercase tracking-wider transition-all duration-300 bg-transparent;
+    font-family: var(--font-display);
+  }
+
+  .btn-harbi-outline:hover {
+    @apply bg-foreground text-background;
+  }
+}
+
+@layer utilities {
+  /* Cinematic Thriller Text Animation */
+  @keyframes cinematic-jitter {
+    0% {
+      transform: translate(0, 0);
+      filter: brightness(1);
+    }
+    10% {
+      transform: translate(-0.5px, 0.8px);
+      filter: brightness(1.05);
+    }
+    20% {
+      transform: translate(0.8px, -0.5px);
+      filter: brightness(0.95);
+    }
+    30% {
+      transform: translate(-0.3px, 0.5px);
+      filter: brightness(1.02);
+    }
+    40% {
+      transform: translate(0.5px, -0.3px);
+      filter: brightness(0.98);
+    }
+    50% {
+      transform: translate(-0.8px, 0.8px);
+      filter: brightness(1);
+    }
+    60% {
+      transform: translate(0.3px, -0.8px);
+      filter: brightness(1.03);
+    }
+    70% {
+      transform: translate(-0.5px, 0.3px);
+      filter: brightness(0.97);
+    }
+    80% {
+      transform: translate(0.8px, -0.5px);
+      filter: brightness(1.01);
+    }
+    90% {
+      transform: translate(-0.3px, 0.5px);
+      filter: brightness(0.99);
+    }
+    100% {
+      transform: translate(0, 0);
+      filter: brightness(1);
+    }
+  }
+
+  @keyframes glitch-clip {
+    0%,
+    100% {
+      clip-path: inset(0 0 0 0);
+    }
+    20% {
+      clip-path: inset(30% 0 20% 0);
+    }
+    40% {
+      clip-path: inset(10% 0 60% 0);
+    }
+    60% {
+      clip-path: inset(50% 0 0 0);
+    }
+    80% {
+      clip-path: inset(0 0 40% 0);
+    }
+  }
+
+  @keyframes flicker-intensity {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    25% {
+      opacity: 0.97;
+    }
+    50% {
+      opacity: 0.99;
+    }
+    75% {
+      opacity: 0.96;
+    }
+  }
+
+  @keyframes marquee-slide {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes marquee-slide-reverse {
+    0% {
+      transform: translateX(-50%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes aggressive-shake {
+    0% {
+      transform: translateX(0);
+    }
+    10% {
+      transform: translateX(-2px);
+    }
+    20% {
+      transform: translateX(2px);
+    }
+    30% {
+      transform: translateX(-2px);
+    }
+    40% {
+      transform: translateX(2px);
+    }
+    50% {
+      transform: translateX(-2px);
+    }
+    60% {
+      transform: translateX(2px);
+    }
+    70% {
+      transform: translateX(-2px);
+    }
+    80% {
+      transform: translateX(2px);
+    }
+    90% {
+      transform: translateX(-2px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  .cinematic-thriller-text {
+    position: relative;
+    display: inline-block;
+    animation: cinematic-jitter 0.2s infinite, flicker-intensity 0.15s infinite;
+    text-shadow: -1.5px 0 rgba(255, 0, 0, 0.5), 1.5px 0 rgba(0, 0, 255, 0.5);
+  }
+
+  .cinematic-thriller-text::before {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    text-shadow: 2px 0 rgba(255, 0, 0, 0.7);
+    animation: glitch-clip 4s infinite;
+    opacity: 0.8;
+  }
+
+  .cinematic-thriller-text::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    text-shadow: -2px 0 rgba(0, 255, 255, 0.7);
+    animation: glitch-clip 3s infinite reverse;
+    opacity: 0.7;
+  }
+
+  .marquee-text {
+    animation: marquee-slide 20s linear infinite;
+  }
+
+  .marquee-text-reverse {
+    animation: marquee-slide-reverse 20s linear infinite;
+  }
+
+  .shake-aggressive {
+    animation: aggressive-shake 0.3s infinite;
+  }
+
+  /* Hide scrollbar */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Perspective for 3D */
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  /* Clip path utilities */
+  .clip-diagonal {
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  }
+}
+
+/* Keyframes */
+@keyframes glitch-1 {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-5px);
+  }
+}
+
+@keyframes glitch-2 {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(5px);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

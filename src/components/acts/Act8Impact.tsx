@@ -1,0 +1,111 @@
+import { useEffect, useRef } from "react"
+import { gsap, ScrollTrigger } from "@/lib/gsap"
+import { ACT_LABELS } from "@/lib/constants"
+import { TrendingUp, Users, Zap, Target } from "lucide-react"
+
+const IMPACTS = [
+  {
+    icon: TrendingUp,
+    title: "Büyüme",
+    description: "Satışlarınız ve marka bilinirliğiniz katlanarak artar.",
+  },
+  {
+    icon: Users,
+    title: "Sadakat",
+    description: "Müşterileriniz markanıza bağlanır, geri gelir.",
+  },
+  {
+    icon: Zap,
+    title: "Hız",
+    description: "Rakiplerinizden önce hareket edersiniz.",
+  },
+  {
+    icon: Target,
+    title: "Odak",
+    description: "Doğru kitleye, doğru mesajla ulaşırsınız.",
+  },
+]
+
+export const Act8Impact = () => {
+  const sectionRef = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    if (!sectionRef.current) return
+
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 70%",
+          end: "top 20%",
+          toggleActions: "play none none reverse",
+        },
+      })
+
+      tl.fromTo(
+        ".act8-label",
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }
+      )
+        .fromTo(
+          ".act8-title",
+          { opacity: 0, y: 50 },
+          { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" },
+          "-=0.3"
+        )
+        .fromTo(
+          ".impact-card",
+          { opacity: 0, y: 40, rotateY: -15 },
+          {
+            opacity: 1,
+            y: 0,
+            rotateY: 0,
+            duration: 0.6,
+            stagger: 0.15,
+            ease: "power3.out",
+          },
+          "-=0.4"
+        )
+    }, sectionRef)
+
+    return () => ctx.revert()
+  }, [])
+
+  return (
+    <section
+      ref={sectionRef}
+      className="act-section bg-transparent py-24"
+      id="act8"
+    >
+      <div className="container mx-auto px-6">
+        <div className="text-center mb-20">
+          <span className="act8-label text-section-label block mb-8">
+            {ACT_LABELS.act8}
+          </span>
+          <h2 className="act8-title text-display-large text-foreground">
+            HARB! İLE ÇALIŞTIKTAN SONRA
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto perspective-1000">
+          {IMPACTS.map((impact) => (
+            <div
+              key={impact.title}
+              className="impact-card group bg-card border border-border p-8 text-center transition-all duration-500 hover:border-primary hover:bg-card/80"
+            >
+              <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-full bg-muted group-hover:bg-primary/20 transition-colors">
+                <impact.icon className="w-8 h-8 text-primary" />
+              </div>
+              <h3 className="text-display-small text-foreground mb-3">
+                {impact.title}
+              </h3>
+              <p className="text-muted-foreground text-sm">
+                {impact.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
