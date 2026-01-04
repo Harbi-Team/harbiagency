@@ -6,27 +6,31 @@ import { Link } from "react-router-dom"
 const PROJECTS = [
   {
     id: 1,
-    title: "AI CAMPUS",
-    category: "Branding & Web",
-    description: "Teknoloji Üssü.",
+    title: "NEV DİJİTAL",
+    category: "Web & Mobil App",
+    description: "Yenilikçi Dijital Deneyimler.",
+    link: "https://nevdijital.web.app/",
   },
   {
     id: 2,
-    title: "THE DIGITAL",
+    title: "THE DIGITAL ME",
     category: "Strategy",
-    description: "Dominasyon: Global.",
+    description: "The Digital Me Etkinliği için Strateji ve Yazılım Çözümleri.",
+    link: "http://thedigitalmeevent.com/",
   },
   {
     id: 3,
     title: "NOVA STARTUP",
     category: "Web Development",
     description: "Dijital Gökdelen.",
+    link: "",
   },
   {
     id: 4,
     title: "BRAND X",
     category: "Production",
     description: "Görsel Şölen.",
+    link: "",
   },
 ]
 
@@ -43,9 +47,14 @@ const Work = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {PROJECTS.map((project) => (
-              <div
+              <a
                 key={project.id}
-                className="group relative aspect-video bg-card border border-border overflow-hidden cursor-pointer transition-all duration-500 hover:border-primary"
+                href={project.link || "#"}
+                target={project.link ? "_blank" : undefined}
+                rel={project.link ? "noopener noreferrer" : undefined}
+                className={`group relative aspect-video bg-card border border-border overflow-hidden transition-all duration-500 hover:border-primary ${
+                  project.link ? "cursor-pointer" : "cursor-default"
+                }`}
               >
                 <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-8">
@@ -59,12 +68,14 @@ const Work = () => {
                     {project.description}
                   </p>
                 </div>
-                <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                  <span className="text-foreground text-sm uppercase tracking-wider">
-                    PROJEYİ İNCELE →
-                  </span>
-                </div>
-              </div>
+                {project.link && (
+                  <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <span className="text-foreground text-sm uppercase tracking-wider">
+                      PROJEYİ İNCELE →
+                    </span>
+                  </div>
+                )}
+              </a>
             ))}
           </div>
 

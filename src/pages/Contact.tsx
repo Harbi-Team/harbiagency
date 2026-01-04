@@ -4,6 +4,7 @@ import { Footer } from "@/components/layout/Footer"
 import { Scene } from "@/components/three/Scene"
 import { toast } from "sonner"
 import { pb } from "@/lib/pocketbase"
+import { SITE_CONFIG } from "@/lib/constants"
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -63,10 +64,10 @@ const Contact = () => {
                     E-POSTA
                   </h3>
                   <a
-                    href="mailto:harbiagency@gmail.com"
+                    href={`mailto:${SITE_CONFIG.contact.email}`}
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
-                    harbiagency@gmail.com
+                    {SITE_CONFIG.contact.email}
                   </a>
                 </div>
                 <div>
@@ -74,10 +75,10 @@ const Contact = () => {
                     TELEFON
                   </h3>
                   <a
-                    href="tel:+902121234567"
+                    href={`tel:${SITE_CONFIG.contact.phone.replace(/\s/g, "")}`}
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
-                    +90 212 123 45 67
+                    {SITE_CONFIG.contact.phoneDisplay}
                   </a>
                 </div>
                 <div>
@@ -85,7 +86,7 @@ const Contact = () => {
                     ADRES
                   </h3>
                   <p className="text-muted-foreground">
-                    Levent, İstanbul, Türkiye
+                    {SITE_CONFIG.contact.addressFull}
                   </p>
                 </div>
               </div>

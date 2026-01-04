@@ -2,7 +2,38 @@
 
 export const SITE_NAME = "HARB!"
 export const SITE_TAGLINE = "Dijital Dominasyon Ajansı"
-
+// Site Configuration - All contact and social media information
+export const SITE_CONFIG = {
+  // Contact Information
+  contact: {
+    email: "harbiagency@gmail.com",
+    phone: "+90 535 763 19 08",
+    phoneDisplay: "+90 535 763 19 08",
+    address: "İstanbul, Türkiye",
+    addressFull: "Sarıyer, İstanbul, Türkiye",
+  },
+  // Social Media Links
+  social: {
+    instagram: "https://instagram.com/harbiagency",
+    linkedin: "",
+    twitter: "",
+    facebook: "",
+    youtube: "",
+  },
+  // Business Information
+  business: {
+    companyName: "HARB! Dijital Dönüşüm Ajansı",
+    companyNameShort: "HARB!",
+    taxOffice: "",
+    taxNumber: "",
+    mersis: "",
+  },
+  // Site URLs
+  urls: {
+    website: "https://harbiagency.com",
+    blog: "",
+  },
+} as const
 // Navigation links
 export const NAV_LINKS = [
   { href: "/about", label: "Hakkımızda" },
@@ -50,7 +81,6 @@ export const SERVICES = [
   },
 ] as const
 
-// Stats
 export const STATS = [
   { value: "150+", label: "Proje" },
   { value: "98%", label: "Müşteri Memnuniyeti" },

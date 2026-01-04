@@ -7,8 +7,35 @@ export const CustomCursor = () => {
   const trailRef = useRef<HTMLDivElement>(null)
   const [isHovering, setIsHovering] = useState(false)
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 })
+  const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
+    // Check if device is mobile/tablet or touch-enabled
+    const checkMobileOrTablet = () => {
+      const isTouchDevice =
+        "ontouchstart" in window || navigator.maxTouchPoints > 0
+      const isSmallScreen = window.innerWidth < 1024 // Tablets and mobile screens
+      const isMobileUA =
+        /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+          navigator.userAgent
+        )
+
+      const shouldHideCursor = isTouchDevice || isSmallScreen || isMobileUA
+      setIsMobile(shouldHideCursor)
+      return shouldHideCursor
+    }
+
+    if (checkMobileOrTablet()) return
+
+    // Re-check on resize
+    const handleResize = () => {
+      if (window.innerWidth < 1024) {
+        setIsMobile(true)
+      }
+    }
+
+    window.addEventListener("resize", handleResize)
+
     const dot = cursorDotRef.current
     const outline = cursorOutlineRef.current
     const trail = trailRef.current
@@ -100,6 +127,7 @@ export const CustomCursor = () => {
 
     return () => {
       window.removeEventListener("mousemove", handleMouseMove)
+      window.removeEventListener("resize", handleResize)
       observer.disconnect()
       elements.forEach((el) => {
         el.removeEventListener("mouseenter", handleMouseEnter)
@@ -107,6 +135,9 @@ export const CustomCursor = () => {
       })
     }
   }, [])
+
+  // Don't render cursor on mobile devices
+  if (isMobile) return null
 
   return (
     <>

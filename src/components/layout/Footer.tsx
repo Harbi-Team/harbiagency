@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import { SITE_NAME, NAV_LINKS } from "@/lib/constants"
+import { SITE_NAME, NAV_LINKS, SITE_CONFIG } from "@/lib/constants"
 
 export const Footer = () => {
   return (
@@ -19,7 +19,7 @@ export const Footer = () => {
               />
             </Link>
             <p className="text-muted-foreground text-sm max-w-xs">
-              Dijital dünyada dominasyon için stratejik ortağınız.
+              Dijital dönüşümde stratejik ortağınız.
             </p>
           </div>
 
@@ -43,9 +43,19 @@ export const Footer = () => {
           <div className="space-y-4">
             <h4 className="text-display-small text-foreground">İLETİŞİM</h4>
             <div className="space-y-2 text-muted-foreground text-sm">
-              <p>harbiagency@gmail.com</p>
-              <p>+90 535 763 19 08</p>
-              <p>İstanbul, Türkiye</p>
+              <a
+                href={`mailto:${SITE_CONFIG.contact.email}`}
+                className="block hover:text-foreground transition-colors"
+              >
+                {SITE_CONFIG.contact.email}
+              </a>
+              <a
+                href={`tel:${SITE_CONFIG.contact.phone.replace(/\s/g, "")}`}
+                className="block hover:text-foreground transition-colors"
+              >
+                {SITE_CONFIG.contact.phoneDisplay}
+              </a>
+              <p>{SITE_CONFIG.contact.address}</p>
             </div>
           </div>
         </div>
@@ -56,15 +66,36 @@ export const Footer = () => {
             © 2025 {SITE_NAME}. ALL RIGHTS RESERVED.
           </p>
           <div className="flex items-center gap-6 text-muted-foreground text-xs">
-            <a href="#" className="hover:text-foreground transition-colors">
-              Instagram
-            </a>
-            <a href="#" className="hover:text-foreground transition-colors">
-              LinkedIn
-            </a>
-            <a href="#" className="hover:text-foreground transition-colors">
-              Twitter
-            </a>
+            {SITE_CONFIG.social.instagram && (
+              <a
+                href={SITE_CONFIG.social.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-foreground transition-colors"
+              >
+                Instagram
+              </a>
+            )}
+            {SITE_CONFIG.social.linkedin && (
+              <a
+                href={SITE_CONFIG.social.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-foreground transition-colors"
+              >
+                LinkedIn
+              </a>
+            )}
+            {SITE_CONFIG.social.twitter && (
+              <a
+                href={SITE_CONFIG.social.twitter}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-foreground transition-colors"
+              >
+                Twitter
+              </a>
+            )}
           </div>
         </div>
       </div>

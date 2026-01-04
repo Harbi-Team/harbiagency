@@ -102,14 +102,37 @@
 
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
+    width: 100%;
   }
 
   body {
     @apply text-foreground antialiased;
     font-family: var(--font-body);
     overflow-x: hidden;
-    cursor: none;
+    width: 100%;
     background: transparent;
+    position: relative;
+  }
+
+  /* Hide default cursor only on desktop (not on mobile/tablet) */
+  @media (min-width: 1024px) and (hover: hover) and (pointer: fine) {
+    body {
+      cursor: none;
+    }
+  }
+
+  /* Ensure normal cursor on mobile and tablet */
+  @media (max-width: 1023px), (hover: none), (pointer: coarse) {
+    body {
+      cursor: auto !important;
+    }
+  }
+
+  #root {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
   }
 
   h1,

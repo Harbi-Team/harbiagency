@@ -1,13 +1,13 @@
-import { useEffect, useRef } from "react";
-import { gsap, ScrollTrigger } from "@/lib/gsap";
-import { ACT_LABELS, STATS } from "@/lib/constants";
+import { useEffect, useRef } from "react"
+import { gsap, ScrollTrigger } from "@/lib/gsap"
+import { ACT_LABELS, STATS } from "@/lib/constants"
 
 export const Act5Proof = () => {
-  const sectionRef = useRef<HTMLElement>(null);
-  const countersRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement>(null)
+  const countersRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    if (!sectionRef.current) return;
+    if (!sectionRef.current) return
 
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({
@@ -17,7 +17,7 @@ export const Act5Proof = () => {
           end: "top 20%",
           toggleActions: "play none none reverse",
         },
-      });
+      })
 
       tl.fromTo(
         ".act5-label",
@@ -42,48 +42,44 @@ export const Act5Proof = () => {
             ease: "power3.out",
           },
           "-=0.4"
-        );
+        )
 
       // Animate numbers
-      const statElements = countersRef.current?.querySelectorAll(".stat-value");
+      const statElements = countersRef.current?.querySelectorAll(".stat-value")
       statElements?.forEach((el) => {
-        const value = el.textContent || "";
-        const numericValue = parseInt(value.replace(/\D/g, "")) || 0;
-        const suffix = value.replace(/[0-9]/g, "");
+        const value = el.textContent || ""
+
+        // Extract number and suffix separately
+        const matches = value.match(/^(\d+)(.*)$/)
+        if (!matches) return
+
+        const numericValue = parseInt(matches[1]) || 0
+        const suffix = matches[2] || ""
 
         ScrollTrigger.create({
           trigger: el,
           start: "top 80%",
           onEnter: () => {
-            gsap.fromTo(
-              el,
-              { textContent: "0" + suffix },
-              {
-                textContent: value,
-                duration: 2,
-                ease: "power2.out",
-                snap: { textContent: 1 },
-                onUpdate: function () {
-                  const current = Math.round(gsap.getProperty(el, "textContent") as number);
-                  el.textContent = current + suffix;
-                },
-              }
-            );
+            const obj = { val: 0 }
+            gsap.to(obj, {
+              val: numericValue,
+              duration: 2,
+              ease: "power2.out",
+              onUpdate: function () {
+                el.textContent = Math.round(obj.val) + suffix
+              },
+            })
           },
           once: true,
-        });
-      });
-    }, sectionRef);
+        })
+      })
+    }, sectionRef)
 
-    return () => ctx.revert();
-  }, []);
+    return () => ctx.revert()
+  }, [])
 
   return (
-    <section
-      ref={sectionRef}
-      className="act-section bg-transparent"
-      id="act5"
-    >
+    <section ref={sectionRef} className="act-section bg-transparent" id="act5">
       <div className="container mx-auto px-6">
         <div className="text-center mb-20">
           <span className="act5-label text-section-label block mb-8">
@@ -111,5 +107,5 @@ export const Act5Proof = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
