@@ -155,8 +155,7 @@ export const InteractiveBackground = () => {
         <img
           src="/lion_bg1.png"
           alt="Geometric Lion"
-          className="w-[50%] max-w-[700px] h-auto opacity-20"
-          style={{ filter: "drop-shadow(0 0 30px rgba(255, 255, 255, 0.3))" }}
+          className="w-[50%] max-w-[700px] h-auto opacity-10"
         />
       </div>
     </>
