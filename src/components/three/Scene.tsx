@@ -46,7 +46,7 @@ const SceneContent = () => {
 
   return (
     <group ref={groupRef}>
-      <ambientLight intensity={0.05} />
+      <ambientLight intensity={0.02} />
       <Particles count={150} size={0.015} spread={30} />
     </group>
   )

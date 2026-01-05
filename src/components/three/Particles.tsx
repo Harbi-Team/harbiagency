@@ -133,9 +133,9 @@ export const Particles = ({
       <lineBasicMaterial
         vertexColors
         transparent
-        opacity={0.5}
+        opacity={0.25}
         linewidth={3}
-        blending={THREE.AdditiveBlending}
+        blending={THREE.NormalBlending}
       />
     </lineSegments>
   )

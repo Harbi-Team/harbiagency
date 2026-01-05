@@ -104,6 +104,9 @@
     scroll-behavior: smooth;
     overflow-x: hidden;
     width: 100%;
+    background-color: hsl(0, 0%, 3%);
+    min-height: 100vh;
+    min-height: 100dvh;
   }
 
   body {
@@ -111,8 +114,10 @@
     font-family: var(--font-body);
     overflow-x: hidden;
     width: 100%;
-    background: transparent;
+    background-color: hsl(0, 0%, 3%);
     position: relative;
+    min-height: 100vh;
+    min-height: 100dvh;
   }
 
   /* Hide default cursor only on desktop (not on mobile/tablet) */
@@ -133,6 +138,9 @@
     overflow-x: hidden;
     width: 100%;
     max-width: 100vw;
+    background-color: hsl(0, 0%, 3%);
+    min-height: 100vh;
+    min-height: 100dvh;
   }
 
   h1,
