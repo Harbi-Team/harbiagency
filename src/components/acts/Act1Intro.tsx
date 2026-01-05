@@ -72,13 +72,6 @@ export const Act1Intro = () => {
   return (
     <section ref={sectionRef} className="act-section bg-transparent" id="act1">
       <div className="container mx-auto px-6 text-center">
-        <span
-          ref={labelRef}
-          className="text-section-label block mb-8 opacity-0"
-        >
-          {ACT_LABELS.act1}
-        </span>
-
         <div ref={titleRef} className="mb-4 opacity-0">
           <h1 className="text-display-hero text-foreground">YA AVCI OLURSUN</h1>
         </div>

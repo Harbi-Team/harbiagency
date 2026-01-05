@@ -61,9 +61,9 @@ export const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-16 pt-8 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="my-10 pt-8 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-muted-foreground text-xs">
-            © 2025 {SITE_NAME}. ALL RIGHTS RESERVED.
+            © {new Date().getFullYear()} {SITE_NAME}. ALL RIGHTS RESERVED.
           </p>
           <div className="flex items-center gap-6 text-muted-foreground text-xs">
             {SITE_CONFIG.social.instagram && (

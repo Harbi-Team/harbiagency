@@ -1,10 +1,6 @@
-// HARB! Website Constants
-
 export const SITE_NAME = "HARB!"
 export const SITE_TAGLINE = "Dijital Dominasyon Ajansı"
-// Site Configuration - All contact and social media information
 export const SITE_CONFIG = {
-  // Contact Information
   contact: {
     email: "harbiagency@gmail.com",
     phone: "+90 535 763 19 08",
@@ -12,7 +8,6 @@ export const SITE_CONFIG = {
     address: "İstanbul, Türkiye",
     addressFull: "Sarıyer, İstanbul, Türkiye",
   },
-  // Social Media Links
   social: {
     instagram: "https://instagram.com/harbiagency",
     linkedin: "",
@@ -20,7 +15,6 @@ export const SITE_CONFIG = {
     facebook: "",
     youtube: "",
   },
-  // Business Information
   business: {
     companyName: "HARB! Dijital Dönüşüm Ajansı",
     companyNameShort: "HARB!",
@@ -28,13 +22,11 @@ export const SITE_CONFIG = {
     taxNumber: "",
     mersis: "",
   },
-  // Site URLs
   urls: {
     website: "https://harbiagency.com",
     blog: "",
   },
 } as const
-// Navigation links
 export const NAV_LINKS = [
   { href: "/about", label: "Hakkımızda" },
   { href: "/work", label: "İşler" },
@@ -43,21 +35,6 @@ export const NAV_LINKS = [
   { href: "/contact", label: "İletişim" },
 ] as const
 
-// Act section labels
-export const ACT_LABELS = {
-  act1: "BÖLÜM I: ORMAN KANUNU",
-  act2: "BÖLÜM II: GÖRÜNMEZ ADAM SENDROMU",
-  act3: "BÖLÜM III: KAOSUN İÇİNDEKİ DÜZEN",
-  act4: "BÖLÜM IV: ARAÇLAR",
-  act5: "BÖLÜM V: KANIT",
-  act6: "BÖLÜM VI: SAVAŞ PLANI",
-  act7: "BÖLÜM VII: FARK",
-  act8: "BÖLÜM VIII: ETKİ",
-  act9: "BÖLÜM IX: HAREKETSİZLİĞİN BEDELİ",
-  act10: "BÖLÜM X: FİNAL",
-} as const
-
-// Services
 export const SERVICES = [
   {
     id: "strategy",
@@ -67,7 +44,7 @@ export const SERVICES = [
   {
     id: "branding",
     title: "BRANDING",
-    description: "Kaptansız Gemi Batırıyoruz.",
+    description: "Kaptansız Gemi Yelken Açmaz.",
   },
   {
     id: "web",
@@ -88,7 +65,6 @@ export const STATS = [
   { value: "24/7", label: "Destek" },
 ] as const
 
-// Battle plan steps
 export const BATTLE_PLAN = [
   {
     step: "01",
@@ -107,7 +83,6 @@ export const BATTLE_PLAN = [
   },
 ] as const
 
-// Comparison data
 export const COMPARISON = {
   others: [
     '"Evet efendim"ci yaklaşım',

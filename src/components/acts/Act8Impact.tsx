@@ -1,6 +1,5 @@
 import { useEffect, useRef } from "react"
 import { gsap, ScrollTrigger } from "@/lib/gsap"
-import { ACT_LABELS } from "@/lib/constants"
 import { TrendingUp, Users, Zap, Target } from "lucide-react"
 
 const IMPACTS = [
@@ -79,9 +78,6 @@ export const Act8Impact = () => {
     >
       <div className="container mx-auto px-6">
         <div className="text-center mb-20">
-          <span className="act8-label text-section-label block mb-8">
-            {ACT_LABELS.act8}
-          </span>
           <h2 className="act8-title text-display-large text-foreground">
             HARB! İLE ÇALIŞTIKTAN SONRA
           </h2>

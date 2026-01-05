@@ -1,12 +1,15 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import { useLocation } from "react-router-dom"
 import { Header } from "@/components/layout/Header"
 import { Footer } from "@/components/layout/Footer"
 import { Scene } from "@/components/three/Scene"
 import { toast } from "sonner"
 import { pb } from "@/lib/pocketbase"
 import { SITE_CONFIG } from "@/lib/constants"
+import { Instagram, Linkedin, Twitter, Facebook, Youtube } from "lucide-react"
 
 const Contact = () => {
+  const location = useLocation()
   const [formData, setFormData] = useState({
     name: "",
     company: "",
@@ -15,6 +18,29 @@ const Contact = () => {
     message: "",
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
+
+  // Auto-fill form from navigation state
+  useEffect(() => {
+    if (location.state) {
+      const { name, surname, company, phone, email, message } =
+        location.state as any
+      setFormData({
+        name: name && surname ? `${name} ${surname}` : name || "",
+        company: company || "",
+        phone: phone || "",
+        email: email || "",
+        message: message || "",
+      })
+
+      if (name || email) {
+        toast.success(
+          `Hoş geldiniz ${
+            name || ""
+          }! Formunuz hazır, inceleyip gönderebilirsiniz.`
+        )
+      }
+    }
+  }, [location.state])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -49,18 +75,18 @@ const Contact = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             {/* Left side */}
             <div>
-              <span className="text-section-label block mb-8">İLETİŞİM</span>
-              <h1 className="text-display-hero text-foreground mb-8">
+              <span className="text-section-label block mb-4">İLETİŞİM</span>
+              <h1 className="text-display-hero text-foreground mb-4">
                 KONUŞALIM
               </h1>
-              <p className="text-xl text-muted-foreground mb-12">
+              <p className="text-xl text-muted-foreground mb-8">
                 Projeniz için strateji görüşmesi yapmak ister misiniz? Formu
                 doldurun, 24 saat içinde dönelim.
               </p>
 
               <div className="space-y-6">
                 <div>
-                  <h3 className="text-display-small text-foreground mb-2">
+                  <h3 className="text-display-small text-foreground">
                     E-POSTA
                   </h3>
                   <a
@@ -71,7 +97,7 @@ const Contact = () => {
                   </a>
                 </div>
                 <div>
-                  <h3 className="text-display-small text-foreground mb-2">
+                  <h3 className="text-display-small text-foreground">
                     TELEFON
                   </h3>
                   <a
@@ -82,12 +108,69 @@ const Contact = () => {
                   </a>
                 </div>
                 <div>
-                  <h3 className="text-display-small text-foreground mb-2">
-                    ADRES
-                  </h3>
+                  <h3 className="text-display-small text-foreground">ADRES</h3>
                   <p className="text-muted-foreground">
                     {SITE_CONFIG.contact.addressFull}
                   </p>
+                </div>
+
+                {/* Social Media Links */}
+                <div>
+                  <h3 className="text-display-small text-foreground mb-4">
+                    SOSYAL MEDYA
+                  </h3>
+                  <div className="flex gap-4">
+                    {SITE_CONFIG.social.instagram && (
+                      <a
+                        href={SITE_CONFIG.social.instagram}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-12 h-12 border border-border flex items-center justify-center hover:border-primary hover:bg-primary/10 transition-all duration-300 group"
+                      >
+                        <Instagram className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
+                      </a>
+                    )}
+                    {SITE_CONFIG.social.linkedin && (
+                      <a
+                        href={SITE_CONFIG.social.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-12 h-12 border border-border flex items-center justify-center hover:border-primary hover:bg-primary/10 transition-all duration-300 group"
+                      >
+                        <Linkedin className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
+                      </a>
+                    )}
+                    {SITE_CONFIG.social.twitter && (
+                      <a
+                        href={SITE_CONFIG.social.twitter}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-12 h-12 border border-border flex items-center justify-center hover:border-primary hover:bg-primary/10 transition-all duration-300 group"
+                      >
+                        <Twitter className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
+                      </a>
+                    )}
+                    {SITE_CONFIG.social.facebook && (
+                      <a
+                        href={SITE_CONFIG.social.facebook}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-12 h-12 border border-border flex items-center justify-center hover:border-primary hover:bg-primary/10 transition-all duration-300 group"
+                      >
+                        <Facebook className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
+                      </a>
+                    )}
+                    {SITE_CONFIG.social.youtube && (
+                      <a
+                        href={SITE_CONFIG.social.youtube}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-12 h-12 border border-border flex items-center justify-center hover:border-primary hover:bg-primary/10 transition-all duration-300 group"
+                      >
+                        <Youtube className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
+                      </a>
+                    )}
+                  </div>
                 </div>
               </div>
             </div>

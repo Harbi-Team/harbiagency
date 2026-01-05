@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react"
 import { gsap, ScrollTrigger } from "@/lib/gsap"
-import { ACT_LABELS, STATS } from "@/lib/constants"
+import { STATS } from "@/lib/constants"
 
 export const Act5Proof = () => {
   const sectionRef = useRef<HTMLElement>(null)
@@ -82,9 +82,6 @@ export const Act5Proof = () => {
     <section ref={sectionRef} className="act-section bg-transparent" id="act5">
       <div className="container mx-auto px-6">
         <div className="text-center mb-20">
-          <span className="act5-label text-section-label block mb-8">
-            {ACT_LABELS.act5}
-          </span>
           <h2 className="act5-title text-display-large text-foreground">
             RAKAMLAR KONUŞSUN
           </h2>

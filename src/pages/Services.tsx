@@ -1,5 +1,6 @@
 import { Header } from "@/components/layout/Header"
 import { Footer } from "@/components/layout/Footer"
+import { FloatingContactButton } from "@/components/layout/FloatingContactButton"
 import { Scene } from "@/components/three/Scene"
 import { SERVICES } from "@/lib/constants"
 import { Link } from "react-router-dom"
@@ -9,6 +10,7 @@ const Services = () => {
     <div className="relative min-h-screen">
       <Scene />
       <Header />
+      <FloatingContactButton />
 
       <main className="relative z-10 pt-32 pb-24">
         <div className="container mx-auto px-6">

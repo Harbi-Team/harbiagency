@@ -1,14 +1,13 @@
-import { useEffect, useRef } from "react";
-import { gsap, ScrollTrigger } from "@/lib/gsap";
-import { ACT_LABELS } from "@/lib/constants";
+import { useEffect, useRef } from "react"
+import { gsap, ScrollTrigger } from "@/lib/gsap"
 
 export const Act3Solution = () => {
-  const sectionRef = useRef<HTMLElement>(null);
-  const lineTopRef = useRef<HTMLDivElement>(null);
-  const lineBottomRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement>(null)
+  const lineTopRef = useRef<HTMLDivElement>(null)
+  const lineBottomRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    if (!sectionRef.current) return;
+    if (!sectionRef.current) return
 
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({
@@ -18,7 +17,7 @@ export const Act3Solution = () => {
           end: "top 20%",
           toggleActions: "play none none reverse",
         },
-      });
+      })
 
       // Animate lines
       tl.fromTo(
@@ -37,18 +36,14 @@ export const Act3Solution = () => {
           { opacity: 0, y: 40 },
           { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" },
           "-=0.4"
-        );
-    }, sectionRef);
+        )
+    }, sectionRef)
 
-    return () => ctx.revert();
-  }, []);
+    return () => ctx.revert()
+  }, [])
 
   return (
-    <section
-      ref={sectionRef}
-      className="act-section bg-transparent"
-      id="act3"
-    >
+    <section ref={sectionRef} className="act-section bg-transparent" id="act3">
       <div className="container mx-auto px-6 text-center">
         {/* Top decorative line */}
         <div
@@ -66,7 +61,9 @@ export const Act3Solution = () => {
 
         <p className="act3-subtitle text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto">
           Biz aileniz değiliz. Biz sizin{" "}
-          <span className="text-primary font-semibold">stratejik silahınızız.</span>
+          <span className="text-primary font-semibold">
+            stratejik silahınızız.
+          </span>
         </p>
 
         {/* Bottom decorative line */}
@@ -92,5 +89,5 @@ export const Act3Solution = () => {
         ))}
       </div>
     </section>
-  );
-};
+  )
+}

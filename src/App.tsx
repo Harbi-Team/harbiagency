@@ -2,10 +2,16 @@ import { Toaster } from "@/components/ui/toaster"
 import { Toaster as Sonner } from "@/components/ui/sonner"
 import { TooltipProvider } from "@/components/ui/tooltip"
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
-import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom"
 import { CustomCursor } from "@/components/layout/CustomCursor"
 import { InteractiveBackground } from "@/components/layout/InteractiveBackground"
 import { ScrollToTop } from "@/components/layout/ScrollToTop"
+import { Loader } from "@/components/layout/Loader"
+import { ContactModal } from "@/components/layout/ContactModal"
+import {
+  ContactModalProvider,
+  useContactModal,
+} from "@/contexts/ContactModalContext"
 import Index from "./pages/Index"
 import About from "./pages/About"
 import Work from "./pages/Work"
@@ -16,24 +22,40 @@ import NotFound from "./pages/NotFound"
 
 const queryClient = new QueryClient()
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
+const AppContent = () => {
+  const location = useLocation()
+  const { isOpen, closeModal } = useContactModal()
+  const isContactPage = location.pathname === "/contact"
+
+  return (
+    <>
+      <Loader />
       <InteractiveBackground />
       <CustomCursor />
       <Toaster />
       <Sonner />
+      {!isContactPage && <ContactModal isOpen={isOpen} onClose={closeModal} />}
+      <ScrollToTop />
+      <Routes>
+        <Route path="/" element={<Index />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/work" element={<Work />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/team" element={<Team />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </>
+  )
+}
+
+const App = () => (
+  <QueryClientProvider client={queryClient}>
+    <TooltipProvider>
       <BrowserRouter>
-        <ScrollToTop />
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/work" element={<Work />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/team" element={<Team />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <ContactModalProvider>
+          <AppContent />
+        </ContactModalProvider>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

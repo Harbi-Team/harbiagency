@@ -1,15 +1,14 @@
-import { useEffect, useRef } from "react";
-import { gsap, ScrollTrigger } from "@/lib/gsap";
-import { ACT_LABELS } from "@/lib/constants";
+import { useEffect, useRef } from "react"
+import { gsap, ScrollTrigger } from "@/lib/gsap"
 
 export const Act2Problem = () => {
-  const sectionRef = useRef<HTMLElement>(null);
-  const titleRef = useRef<HTMLDivElement>(null);
-  const leftTextRef = useRef<HTMLParagraphElement>(null);
-  const rightTextRef = useRef<HTMLParagraphElement>(null);
+  const sectionRef = useRef<HTMLElement>(null)
+  const titleRef = useRef<HTMLDivElement>(null)
+  const leftTextRef = useRef<HTMLParagraphElement>(null)
+  const rightTextRef = useRef<HTMLParagraphElement>(null)
 
   useEffect(() => {
-    if (!sectionRef.current) return;
+    if (!sectionRef.current) return
 
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({
@@ -19,7 +18,7 @@ export const Act2Problem = () => {
           end: "top 20%",
           toggleActions: "play none none reverse",
         },
-      });
+      })
 
       tl.fromTo(
         ".act2-label",
@@ -44,23 +43,15 @@ export const Act2Problem = () => {
           { opacity: 0, y: 40 },
           { opacity: 1, y: 0, duration: 0.6, stagger: 0.2, ease: "power3.out" },
           "-=0.4"
-        );
-    }, sectionRef);
+        )
+    }, sectionRef)
 
-    return () => ctx.revert();
-  }, []);
+    return () => ctx.revert()
+  }, [])
 
   return (
-    <section
-      ref={sectionRef}
-      className="act-section bg-transparent"
-      id="act2"
-    >
+    <section ref={sectionRef} className="act-section bg-transparent" id="act2">
       <div className="container mx-auto px-6">
-        <span className="act2-label text-section-label block mb-12">
-          {ACT_LABELS.act2}
-        </span>
-
         <div ref={titleRef} className="mb-16 perspective-1000">
           <h2 className="act2-title-line text-display-large text-foreground block">
             SESİNİZİ
@@ -94,5 +85,5 @@ export const Act2Problem = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
