@@ -31,12 +31,23 @@ export const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
 
   useEffect(() => {
     if (isOpen) {
+      // Prevent scroll on body
       document.body.style.overflow = "hidden"
+      document.body.style.position = "fixed"
+      document.body.style.width = "100%"
+      document.body.style.top = "0"
     } else {
-      document.body.style.overflow = "unset"
+      // Restore scroll
+      document.body.style.overflow = ""
+      document.body.style.position = ""
+      document.body.style.width = ""
+      document.body.style.top = ""
     }
     return () => {
-      document.body.style.overflow = "unset"
+      document.body.style.overflow = ""
+      document.body.style.position = ""
+      document.body.style.width = ""
+      document.body.style.top = ""
     }
   }, [isOpen])
 
@@ -115,12 +126,19 @@ export const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
   }
 
   return (
-    <div className="fixed inset-0 z-[9998] flex items-center justify-center overflow-hidden">
+    <div className="fixed inset-0 z-[9998] flex items-center justify-center">
       {/* Backdrop */}
-      <div className="absolute inset-0 bg-black" onClick={handleClose} />
+      <div
+        className="absolute inset-0 bg-black"
+        onClick={handleClose}
+        style={{ touchAction: "none" }}
+      />
 
       {/* Modal Container */}
-      <div className="relative w-full max-w-2xl mx-4 bg-black shadow-2xl overflow-hidden">
+      <div
+        className="relative w-full max-w-2xl mx-4 bg-black shadow-2xl z-[9999] max-h-[90vh] overflow-y-auto"
+        style={{ touchAction: "auto" }}
+      >
         {/* Header */}
         <div className="relative p-6 md:p-8 border-b border-white/10">
           <button
@@ -159,9 +177,11 @@ export const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
                   onChange={(e) =>
                     setFormData({ ...formData, name: e.target.value })
                   }
-                  className="w-full px-0 py-3 bg-transparent border-0 border-b border-white/20 focus:border-primary focus:outline-none transition-all text-lg text-white placeholder:text-white/40"
+                  className="w-full px-0 py-3 bg-transparent border-0 border-b border-white/20 focus:border-primary focus:outline-none transition-all text-lg text-white placeholder:text-white/40 relative z-10"
                   placeholder="Adınız"
                   autoFocus
+                  autoComplete="off"
+                  inputMode="text"
                 />
               </div>
 
@@ -172,8 +192,10 @@ export const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
                   onChange={(e) =>
                     setFormData({ ...formData, surname: e.target.value })
                   }
-                  className="w-full px-0 py-3 bg-transparent border-0 border-b border-white/20 focus:border-primary focus:outline-none transition-all text-lg text-white placeholder:text-white/40"
+                  className="w-full px-0 py-3 bg-transparent border-0 border-b border-white/20 focus:border-primary focus:outline-none transition-all text-lg text-white placeholder:text-white/40 relative z-10"
                   placeholder="Soyadınız"
+                  autoComplete="off"
+                  inputMode="text"
                 />
               </div>
             </div>
@@ -189,9 +211,11 @@ export const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
                   onChange={(e) =>
                     setFormData({ ...formData, email: e.target.value })
                   }
-                  className="w-full px-0 py-3 bg-transparent border-0 border-b border-white/20 focus:border-primary focus:outline-none transition-all text-lg text-white placeholder:text-white/40"
+                  className="w-full px-0 py-3 bg-transparent border-0 border-b border-white/20 focus:border-primary focus:outline-none transition-all text-lg text-white placeholder:text-white/40 relative z-10"
                   placeholder="E-Posta Adresiniz"
                   autoFocus
+                  autoComplete="off"
+                  inputMode="email"
                 />
               </div>
 
@@ -202,8 +226,10 @@ export const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
                   onChange={(e) =>
                     setFormData({ ...formData, phone: e.target.value })
                   }
-                  className="w-full px-0 py-3 bg-transparent border-0 border-b border-white/20 focus:border-primary focus:outline-none transition-all text-lg text-white placeholder:text-white/40"
+                  className="w-full px-0 py-3 bg-transparent border-0 border-b border-white/20 focus:border-primary focus:outline-none transition-all text-lg text-white placeholder:text-white/40 relative z-10"
                   placeholder="Telefon Numaranız"
+                  autoComplete="off"
+                  inputMode="tel"
                 />
               </div>
             </div>
@@ -219,9 +245,11 @@ export const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
                   onChange={(e) =>
                     setFormData({ ...formData, company: e.target.value })
                   }
-                  className="w-full px-0 py-3 bg-transparent border-0 border-b border-white/20 focus:border-primary focus:outline-none transition-all text-lg text-white placeholder:text-white/40"
+                  className="w-full px-0 py-3 bg-transparent border-0 border-b border-white/20 focus:border-primary focus:outline-none transition-all text-lg text-white placeholder:text-white/40 relative z-10"
                   placeholder="Firma Adı (Opsiyonel)"
                   autoFocus
+                  autoComplete="off"
+                  inputMode="text"
                 />
               </div>
 
@@ -231,8 +259,9 @@ export const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
                   onChange={(e) =>
                     setFormData({ ...formData, message: e.target.value })
                   }
-                  className="w-full flex-1 min-h-[180px] px-0 py-3 bg-transparent border-0 border-b border-white/20 focus:border-primary focus:outline-none transition-all resize-none text-lg text-white placeholder:text-white/40"
+                  className="w-full flex-1 min-h-[180px] px-0 py-3 bg-transparent border-0 border-b border-white/20 focus:border-primary focus:outline-none transition-all resize-none text-lg text-white placeholder:text-white/40 relative z-10"
                   placeholder="Mesajınız"
+                  autoComplete="off"
                 />
               </div>
             </div>
