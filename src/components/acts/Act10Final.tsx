@@ -48,31 +48,21 @@ export const Act10Final = () => {
     >
       <div className="container mx-auto px-6 text-center">
         <h2
-          className="act10-title text-display-hero mb-8 text-yellow-500 font-black"
+          className="act10-title text-display-hero mb-8 text-primary font-black"
           style={{
-            textShadow:
-              "0 0 40px rgba(234, 179, 8, 0.5), 0 0 80px rgba(234, 179, 8, 0.3), 0 4px 20px rgba(0, 0, 0, 0.8)",
-            WebkitTextStroke: "2px rgba(234, 179, 8, 0.3)",
+            textShadow: "0 2px 10px rgba(0, 0, 0, 0.5)",
           }}
         >
           HAZIR MISIN?
         </h2>
 
-        <p
-          className="act10-desc text-xl text-gray-300 max-w-xl mx-auto mb-12"
-          style={{
-            textShadow: "0 2px 10px rgba(0, 0, 0, 0.8)",
-          }}
-        >
+        <p className="act10-desc text-xl text-muted-foreground max-w-xl mx-auto mb-12">
           Vasatlıktan sıkıldıysan, zirveye oynamak istiyorsan, masaya oturalım.
         </p>
 
         <Link
           to="/contact"
-          className="act10-btn inline-block border-2 border-yellow-500 text-yellow-500 hover:bg-yellow-500 hover:text-black transition-all duration-300 text-xl px-12 py-5 font-bold tracking-wider"
-          style={{
-            boxShadow: "0 0 20px rgba(234, 179, 8, 0.3)",
-          }}
+          className="act10-btn inline-block border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 text-xl px-12 py-5 font-bold tracking-wider"
         >
           BAŞVURUYU BAŞLAT
         </Link>
