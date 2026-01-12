@@ -12,7 +12,6 @@ import { Act7Difference } from "@/components/acts/Act7Difference"
 import { Act8Impact } from "@/components/acts/Act8Impact"
 import { Act9Cost } from "@/components/acts/Act9Cost"
 import { Act10Final } from "@/components/acts/Act10Final"
-import { ActTeamPreview } from "@/components/acts/ActTeamPreview"
 
 const Index = () => {
   return (
@@ -36,7 +35,6 @@ const Index = () => {
         <Act6Plan />
         <Act7Difference />
         <Act8Impact />
-        <ActTeamPreview />
         <Act9Cost />
         <Act10Final />
       </main>

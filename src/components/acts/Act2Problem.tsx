@@ -14,8 +14,8 @@ export const Act2Problem = () => {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top 80%",
-          end: "top 20%",
+          start: "top 85%",
+          end: "top 30%",
           toggleActions: "play none none reverse",
         },
       })
@@ -23,26 +23,32 @@ export const Act2Problem = () => {
       tl.fromTo(
         ".act2-label",
         { opacity: 0, y: 30 },
-        { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }
+        { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }
       )
         .fromTo(
           ".act2-title-line",
-          { opacity: 0, y: 80, rotateX: 45 },
+          { opacity: 0, y: 60, rotateX: 45 },
           {
             opacity: 1,
             y: 0,
             rotateX: 0,
-            duration: 0.8,
+            duration: 0.5,
+            stagger: 0.1,
+            ease: "power3.out",
+          },
+          "-=0.2"
+        )
+        .fromTo(
+          [leftTextRef.current, rightTextRef.current],
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.4,
             stagger: 0.15,
             ease: "power3.out",
           },
           "-=0.3"
-        )
-        .fromTo(
-          [leftTextRef.current, rightTextRef.current],
-          { opacity: 0, y: 40 },
-          { opacity: 1, y: 0, duration: 0.6, stagger: 0.2, ease: "power3.out" },
-          "-=0.4"
         )
     }, sectionRef)
 

@@ -12,35 +12,35 @@ export const Act4Arsenal = () => {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top 70%",
-          end: "top 20%",
+          start: "top 75%",
+          end: "top 30%",
           toggleActions: "play none none reverse",
         },
       })
 
       tl.fromTo(
         ".act4-title",
-        { opacity: 0, y: 40 },
-        { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" }
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }
       )
         .fromTo(
           ".act4-subtitle",
           { opacity: 0, y: 20 },
-          { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" },
-          "-=0.4"
+          { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" },
+          "-=0.3"
         )
         .fromTo(
           ".service-card",
-          { opacity: 0, y: 60, scale: 0.95 },
+          { opacity: 0, y: 40, scale: 0.95 },
           {
             opacity: 1,
             y: 0,
             scale: 1,
-            duration: 0.6,
-            stagger: 0.15,
+            duration: 0.4,
+            stagger: 0.1,
             ease: "power3.out",
           },
-          "-=0.3"
+          "-=0.2"
         )
     }, sectionRef)
 

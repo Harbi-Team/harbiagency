@@ -15,10 +15,11 @@ export const Header = () => {
           <Link
             to="/"
             className="hover:opacity-80 transition-opacity duration-300"
+            aria-label="Ana Sayfa"
           >
             <img
               src="/harbi/harbi_logo.png"
-              alt="HARB!"
+              alt="HARB! Dijital Ajans Logosu"
               className="h-8 md:h-10 w-auto"
             />
           </Link>
@@ -27,7 +28,8 @@ export const Header = () => {
           <button
             onClick={() => setIsMenuOpen(true)}
             className="flex flex-col gap-1.5 p-2 group"
-            aria-label="Open menu"
+            aria-label="Menüyü Aç"
+            aria-expanded={isMenuOpen}
           >
             <span className="w-8 h-0.5 bg-foreground transition-all duration-300 group-hover:bg-primary" />
             <span className="w-8 h-0.5 bg-foreground transition-all duration-300 group-hover:bg-primary" />

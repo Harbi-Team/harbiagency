@@ -59,7 +59,7 @@ const Team = () => {
                 <div className="relative aspect-[3/4] overflow-hidden bg-muted">
                   <img
                     src={member.image}
-                    alt={member.name}
+                    alt={`${member.name} - ${member.description}`}
                     className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105"
                   />
                   {/* Overlay on hover */}

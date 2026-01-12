@@ -35,35 +35,35 @@ export const Act8Impact = () => {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top 70%",
-          end: "top 20%",
+          start: "top 75%",
+          end: "top 30%",
           toggleActions: "play none none reverse",
         },
       })
 
       tl.fromTo(
         ".act8-label",
-        { opacity: 0, y: 30 },
-        { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }
+        { opacity: 0, y: 25 },
+        { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }
       )
         .fromTo(
           ".act8-title",
-          { opacity: 0, y: 50 },
-          { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" },
-          "-=0.3"
+          { opacity: 0, y: 35 },
+          { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" },
+          "-=0.2"
         )
         .fromTo(
           ".impact-card",
-          { opacity: 0, y: 40, rotateY: -15 },
+          { opacity: 0, y: 30, rotateY: -15 },
           {
             opacity: 1,
             y: 0,
             rotateY: 0,
-            duration: 0.6,
-            stagger: 0.15,
+            duration: 0.4,
+            stagger: 0.1,
             ease: "power3.out",
           },
-          "-=0.4"
+          "-=0.3"
         )
     }, sectionRef)
 

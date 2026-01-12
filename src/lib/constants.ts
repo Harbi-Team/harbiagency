@@ -1,5 +1,5 @@
 export const SITE_NAME = "HARB!"
-export const SITE_TAGLINE = "Dijital Dominasyon Ajansı"
+export const SITE_TAGLINE = "Dijital Dönüşüm Ajansı"
 export const SITE_CONFIG = {
   contact: {
     email: "harbiagency@gmail.com",

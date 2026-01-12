@@ -13,21 +13,21 @@ export const Act7Difference = () => {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top 70%",
-          end: "top 20%",
+          start: "top 75%",
+          end: "top 30%",
           toggleActions: "play none none reverse",
         },
       })
 
       tl.fromTo(
         ".comparison-left",
-        { opacity: 0, x: -80 },
-        { opacity: 1, x: 0, duration: 0.8, ease: "power3.out" }
+        { opacity: 0, x: -60 },
+        { opacity: 1, x: 0, duration: 0.5, ease: "power3.out" }
       ).fromTo(
         ".comparison-right",
-        { opacity: 0, x: 80 },
-        { opacity: 1, x: 0, duration: 0.8, ease: "power3.out" },
-        "-=0.6"
+        { opacity: 0, x: 60 },
+        { opacity: 1, x: 0, duration: 0.5, ease: "power3.out" },
+        "-=0.4"
       )
     }, sectionRef)
 

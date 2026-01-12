@@ -41,15 +41,15 @@ export const Act1Intro = () => {
           "-=0.4"
         )
 
-      // Scroll-triggered fade out
+      // Scroll-triggered fade out - daha hızlı
       ScrollTrigger.create({
         trigger: sectionRef.current,
         start: "top top",
-        end: "bottom top",
-        scrub: true,
+        end: "50% top",
+        scrub: 0.5,
         onUpdate: (self) => {
-          const opacity = 1 - self.progress
-          const scale = 1 - self.progress * 0.2
+          const opacity = 1 - self.progress * 1.5
+          const scale = 1 - self.progress * 0.15
           gsap.set(
             [
               titleRef.current,
@@ -58,8 +58,8 @@ export const Act1Intro = () => {
               labelRef.current,
             ],
             {
-              opacity,
-              scale,
+              opacity: Math.max(0, opacity),
+              scale: Math.max(0.85, scale),
             }
           )
         },

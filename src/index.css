@@ -23,7 +23,7 @@
     --secondary-foreground: 0 0% 98%;
 
     --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 60%;
+    --muted-foreground: 0 0% 70%;
 
     --accent: 48 100% 45%;
     --accent-foreground: 0 0% 3%;
@@ -31,7 +31,7 @@
     --destructive: 48 100% 50%;
     --destructive-foreground: 0 0% 3%;
 
-    --border: 0 0% 15%;
+    --border: 0 0% 20%;
     --input: 0 0% 15%;
     --ring: 48 100% 50%;
 
@@ -120,14 +120,17 @@
     min-height: 100dvh;
   }
 
-  /* Hide default cursor only on desktop (not on mobile/tablet) */
-  @media (min-width: 1024px) and (hover: hover) and (pointer: fine) {
-    body {
-      cursor: none;
-    }
+  /* Focus states for accessibility */
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    outline: 2px solid hsl(var(--primary));
+    outline-offset: 2px;
   }
 
-  /* Ensure normal cursor on mobile and tablet */
+  /* Ensure normal cursor on all devices */
   @media (max-width: 1023px), (hover: none), (pointer: coarse) {
     body {
       cursor: auto !important;

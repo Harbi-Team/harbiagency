@@ -13,6 +13,18 @@ export const Menu = ({ isOpen, onClose }: MenuProps) => {
   const menuRef = useRef<HTMLDivElement>(null)
   const linksRef = useRef<HTMLDivElement>(null)
 
+  // Handle ESC key to close menu
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && isOpen) {
+        onClose()
+      }
+    }
+
+    document.addEventListener("keydown", handleEscape)
+    return () => document.removeEventListener("keydown", handleEscape)
+  }, [isOpen, onClose])
+
   useEffect(() => {
     if (!menuRef.current || !linksRef.current) return
 
@@ -69,7 +81,7 @@ export const Menu = ({ isOpen, onClose }: MenuProps) => {
           <button
             onClick={onClose}
             className="p-2 text-foreground hover:text-primary transition-colors"
-            aria-label="Close menu"
+            aria-label="Menüyü Kapat"
           >
             <X size={32} />
           </button>

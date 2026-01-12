@@ -41,29 +41,29 @@ export const ActTeamPreview = () => {
     if (isMobile) return
 
     const ctx = gsap.context(() => {
-      // Title animation
+      // Title animation - daha hızlı
       gsap.from(titleRef.current, {
         scrollTrigger: {
           trigger: titleRef.current,
-          start: "top 80%",
-          end: "top 50%",
-          scrub: 1,
+          start: "top 85%",
+          end: "top 60%",
+          scrub: 0.5,
         },
-        y: 100,
+        y: 80,
         opacity: 0,
       })
 
-      // Cards stagger animation
+      // Cards stagger animation - daha hızlı
       gsap.from(".team-card", {
         scrollTrigger: {
           trigger: cardsRef.current,
-          start: "top 80%",
-          end: "top 40%",
-          scrub: 1,
+          start: "top 85%",
+          end: "top 55%",
+          scrub: 0.5,
         },
-        y: 100,
+        y: 60,
         opacity: 0,
-        stagger: 0.1,
+        stagger: 0.08,
       })
     }, sectionRef)
 
@@ -73,7 +73,7 @@ export const ActTeamPreview = () => {
   return (
     <section
       ref={sectionRef}
-      className="act-section bg-transparent py-24"
+      className="act-section relative z-20 bg-background py-24"
       id="team-preview"
     >
       <div className="container mx-auto px-6">

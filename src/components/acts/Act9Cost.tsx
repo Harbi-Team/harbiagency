@@ -14,8 +14,8 @@ export const Act9Cost = () => {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top 70%",
-          end: "top 20%",
+          start: "top 75%",
+          end: "top 30%",
           toggleActions: "play none none reverse",
         },
       })
@@ -23,31 +23,31 @@ export const Act9Cost = () => {
       tl.fromTo(
         ".act9-badge",
         { opacity: 0, scale: 0.8 },
-        { opacity: 1, scale: 1, duration: 0.6, ease: "back.out(1.7)" }
+        { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(1.7)" }
       )
         .fromTo(
           ".act9-title",
-          { opacity: 0, y: 80 },
-          { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" },
-          "-=0.3"
+          { opacity: 0, y: 60 },
+          { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" },
+          "-=0.2"
         )
         .fromTo(
           ".act9-desc",
-          { opacity: 0, y: 40 },
+          { opacity: 0, y: 30 },
           {
             opacity: 1,
             y: 0,
-            duration: 0.6,
-            stagger: 0.15,
+            duration: 0.4,
+            stagger: 0.1,
             ease: "power3.out",
           },
-          "-=0.4"
+          "-=0.3"
         )
         .fromTo(
           ".act9-box",
-          { opacity: 0, y: 30 },
-          { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" },
-          "-=0.3"
+          { opacity: 0, y: 25 },
+          { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" },
+          "-=0.2"
         )
     }, sectionRef)
 

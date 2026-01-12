@@ -126,12 +126,18 @@ export const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
   }
 
   return (
-    <div className="fixed inset-0 z-[9998] flex items-center justify-center">
+    <div
+      className="fixed inset-0 z-[9998] flex items-center justify-center"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="contact-modal-title"
+    >
       {/* Backdrop */}
       <div
         className="absolute inset-0 bg-black"
         onClick={handleClose}
         style={{ touchAction: "none" }}
+        aria-hidden="true"
       />
 
       {/* Modal Container */}
@@ -144,11 +150,15 @@ export const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
           <button
             onClick={handleClose}
             className="absolute top-6 right-6 p-2 hover:bg-white/10 rounded-full transition-colors text-white"
+            aria-label="Modalı Kapat"
           >
             <X className="w-5 h-5" />
           </button>
 
-          <h2 className="text-2xl md:text-3xl font-bold pr-12 text-white">
+          <h2
+            id="contact-modal-title"
+            className="text-2xl md:text-3xl font-bold pr-12 text-white"
+          >
             {getTitle()}
           </h2>
 

@@ -13,29 +13,29 @@ export const Act3Solution = () => {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top 70%",
-          end: "top 20%",
+          start: "top 75%",
+          end: "top 30%",
           toggleActions: "play none none reverse",
         },
       })
 
-      // Animate lines
+      // Animate lines - daha hızlı
       tl.fromTo(
         [lineTopRef.current, lineBottomRef.current],
         { scaleX: 0 },
-        { scaleX: 1, duration: 1, ease: "power3.inOut" }
+        { scaleX: 1, duration: 0.6, ease: "power3.inOut" }
       )
         .fromTo(
           ".act3-title",
-          { opacity: 0, y: 60, scale: 0.95 },
-          { opacity: 1, y: 0, scale: 1, duration: 0.8, ease: "power3.out" },
-          "-=0.6"
+          { opacity: 0, y: 40, scale: 0.95 },
+          { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: "power3.out" },
+          "-=0.4"
         )
         .fromTo(
           ".act3-subtitle",
-          { opacity: 0, y: 40 },
-          { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" },
-          "-=0.4"
+          { opacity: 0, y: 30 },
+          { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" },
+          "-=0.3"
         )
     }, sectionRef)
 

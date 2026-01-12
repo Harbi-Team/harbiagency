@@ -12,28 +12,28 @@ export const Act10Final = () => {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top 70%",
-          end: "top 20%",
+          start: "top 75%",
+          end: "top 30%",
           toggleActions: "play none none reverse",
         },
       })
 
       tl.fromTo(
         ".act10-title",
-        { opacity: 0, y: 80, scale: 0.95 },
-        { opacity: 1, y: 0, scale: 1, duration: 1, ease: "power3.out" }
+        { opacity: 0, y: 60, scale: 0.95 },
+        { opacity: 1, y: 0, scale: 1, duration: 0.6, ease: "power3.out" }
       )
         .fromTo(
           ".act10-desc",
-          { opacity: 0, y: 40 },
-          { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" },
-          "-=0.5"
+          { opacity: 0, y: 30 },
+          { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" },
+          "-=0.3"
         )
         .fromTo(
           ".act10-btn",
-          { opacity: 0, y: 30 },
-          { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" },
-          "-=0.3"
+          { opacity: 0, y: 25 },
+          { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" },
+          "-=0.2"
         )
     }, sectionRef)
 

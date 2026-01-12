@@ -1,50 +1,50 @@
-import { useEffect, useRef } from "react";
-import { gsap, ScrollTrigger } from "@/lib/gsap";
-import { ACT_LABELS, BATTLE_PLAN } from "@/lib/constants";
+import { useEffect, useRef } from "react"
+import { gsap, ScrollTrigger } from "@/lib/gsap"
+import { ACT_LABELS, BATTLE_PLAN } from "@/lib/constants"
 
 export const Act6Plan = () => {
-  const sectionRef = useRef<HTMLElement>(null);
+  const sectionRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
-    if (!sectionRef.current) return;
+    if (!sectionRef.current) return
 
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top 70%",
-          end: "top 20%",
+          start: "top 75%",
+          end: "top 30%",
           toggleActions: "play none none reverse",
         },
-      });
+      })
 
       tl.fromTo(
         ".act6-title",
-        { opacity: 0, x: -60 },
-        { opacity: 1, x: 0, duration: 0.8, ease: "power3.out" }
+        { opacity: 0, x: -50 },
+        { opacity: 1, x: 0, duration: 0.5, ease: "power3.out" }
       )
         .fromTo(
           ".act6-desc",
-          { opacity: 0, y: 30 },
-          { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" },
-          "-=0.4"
+          { opacity: 0, y: 25 },
+          { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" },
+          "-=0.3"
         )
         .fromTo(
           ".plan-step",
-          { opacity: 0, x: 60 },
+          { opacity: 0, x: 50 },
           {
             opacity: 1,
             x: 0,
-            duration: 0.6,
-            stagger: 0.2,
+            duration: 0.4,
+            stagger: 0.12,
             ease: "power3.out",
           },
-          "-=0.3"
-        );
-    }, sectionRef);
+          "-=0.2"
+        )
+    }, sectionRef)
 
-    return () => ctx.revert();
-  }, []);
+    return () => ctx.revert()
+  }, [])
 
   return (
     <section
@@ -94,5 +94,5 @@ export const Act6Plan = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}

@@ -75,48 +75,81 @@ const Contact = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             {/* Left side */}
             <div>
-              <span className="text-section-label block mb-4">İLETİŞİM</span>
-              <h1 className="text-display-hero text-foreground mb-4">
+              <span
+                className="text-section-label block mb-4"
+                style={{ textShadow: "0 2px 10px rgba(0, 0, 0, 0.8)" }}
+              >
+                İLETİŞİM
+              </span>
+              <h1
+                className="text-display-hero text-foreground mb-4"
+                style={{
+                  textShadow:
+                    "0 4px 20px rgba(0, 0, 0, 0.9), 0 0 40px rgba(255, 221, 0, 0.3)",
+                }}
+              >
                 KONUŞALIM
               </h1>
-              <p className="text-xl text-muted-foreground mb-8">
+              <p
+                className="text-xl text-muted-foreground mb-8"
+                style={{ textShadow: "0 2px 15px rgba(0, 0, 0, 0.8)" }}
+              >
                 Projeniz için strateji görüşmesi yapmak ister misiniz? Formu
                 doldurun, 24 saat içinde dönelim.
               </p>
 
               <div className="space-y-6">
                 <div>
-                  <h3 className="text-display-small text-foreground">
+                  <h3
+                    className="text-display-small text-foreground"
+                    style={{ textShadow: "0 3px 15px rgba(0, 0, 0, 0.8)" }}
+                  >
                     E-POSTA
                   </h3>
                   <a
                     href={`mailto:${SITE_CONFIG.contact.email}`}
                     className="text-muted-foreground hover:text-primary transition-colors"
+                    style={{ textShadow: "0 2px 10px rgba(0, 0, 0, 0.8)" }}
                   >
                     {SITE_CONFIG.contact.email}
                   </a>
                 </div>
                 <div>
-                  <h3 className="text-display-small text-foreground">
+                  <h3
+                    className="text-display-small text-foreground"
+                    style={{ textShadow: "0 3px 15px rgba(0, 0, 0, 0.8)" }}
+                  >
                     TELEFON
                   </h3>
                   <a
                     href={`tel:${SITE_CONFIG.contact.phone.replace(/\s/g, "")}`}
                     className="text-muted-foreground hover:text-primary transition-colors"
+                    style={{ textShadow: "0 2px 10px rgba(0, 0, 0, 0.8)" }}
                   >
                     {SITE_CONFIG.contact.phoneDisplay}
                   </a>
                 </div>
                 <div>
-                  <h3 className="text-display-small text-foreground">ADRES</h3>
-                  <p className="text-muted-foreground">
+                  <h3
+                    className="text-display-small text-foreground"
+                    style={{ textShadow: "0 3px 15px rgba(0, 0, 0, 0.8)" }}
+                  >
+                    ADRES
+                  </h3>
+                  <p
+                    className="text-muted-foreground"
+                    style={{ textShadow: "0 2px 10px rgba(0, 0, 0, 0.8)" }}
+                  >
                     {SITE_CONFIG.contact.addressFull}
                   </p>
                 </div>
 
                 {/* Social Media Links */}
                 <div>
-                  <h3 className="text-display-small text-foreground mb-4">
+                  <h3
+                    className="text-display-small text-foreground mb-4"
+                    style={{ textShadow: "0 3px 15px rgba(0, 0, 0, 0.8)" }}
+                  >
                     SOSYAL MEDYA
                   </h3>
                   <div className="flex gap-4">
@@ -176,8 +209,14 @@ const Contact = () => {
             </div>
 
             {/* Right side - Form */}
-            <div className="bg-card border border-border p-8 md:p-12">
-              <h2 className="text-display-medium text-foreground mb-8">
+            <div
+              className="bg-card border border-border p-8 md:p-12"
+              style={{ backgroundColor: "rgba(13, 13, 13, 0.95)" }}
+            >
+              <h2
+                className="text-display-medium text-foreground mb-8"
+                style={{ textShadow: "0 3px 15px rgba(0, 0, 0, 0.8)" }}
+              >
                 BAŞVURU FORMU
               </h2>
 
